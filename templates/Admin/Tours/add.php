@@ -1,3 +1,7 @@
+<?php
+$query = "SELECT * FROM airlines";
+$result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $query);
+?>
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -6,7 +10,7 @@
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
     </div>
 
-    <div class="row">
+    <form class="row" action="" method="POST">
         <div class="col xl-8 col-lg-8">
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items center justify-content-between">
@@ -18,10 +22,13 @@
                             <a class="nav-link active" id="General-tab" data-toggle="tab" href="#General" role="tab" aria-controls="General" aria-selected="true">General</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                            <a class="nav-link" id="flight-tab" data-toggle="tab" href="#flight" role="tab" aria-controls="flight" aria-selected="false">Flight</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                            <a class="nav-link" id="Include-tab" data-toggle="tab" href="#Include" role="tab" aria-controls="Include" aria-selected="false">Include</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="Exclude-tab" data-toggle="tab" href="#Exclude" role="tab" aria-controls="Exclude" aria-selected="false">Exclude</a>
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
@@ -29,7 +36,13 @@
                             <div class="row">
                                 <div class="col my-2">
                                     <label for="tourName">Tour Name</label>
-                                    <input type="text" name="" id="tourName" class="form-control">
+                                    <input type="text" name="tourName" id="tourName" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col my-2">
+                                    <label for="tourName">Tour Dates</label>
+                                    <textarea name="tourDates" id="" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="row my-1">
@@ -115,19 +128,19 @@
                                                     Price
                                                 </th>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="" id="" class="form-control">
+                                                    <input type="text" name="tourTwn" id="" class="form-control">
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="" id="" class="form-control">
+                                                    <input type="text" name="tourSgl" id="" class="form-control">
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="" id="" class="form-control">
+                                                    <input type="text" name="tourCtw" id="" class="form-control">
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="" id="" class="form-control">
+                                                    <input type="text" name="tourCwb" id="" class="form-control">
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="" id="" class="form-control">
+                                                    <input type="text" name="tourCnb" id="" class="form-control">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -136,37 +149,193 @@
                             </div>
                             <div class="row my-2">
                                 <div class="col">
-                                    <label for="tourName">Tour City</label>
-                                    <table class="table table-bordered">
+                                    <label for="tourCities">Tour Cities</label>
+                                    <textarea id="tourCities" class="form-control" name="tourCities">ATHENS – KALAMBAKA – BITOLA – OHRID – TIRANA – BAR – PODGORICA – BUDVA – KOTOR – TIVAT – DUBROVNIK – POCITELJ – BLAGAJ – MOSTAR – SARAJEVO – AHMICI – TRAVNIK – JAJCE - BIHAC – PLITVICE LAKES – ZAGREB</textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="Include" role="tabpanel" aria-labelledby="Include-tab">
+                            <div class="row my-2">
+                                <div class="col-6">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="include[]" class="custom-control-input" id="airlineTicket" value="1" checked>
+                                        <label class="custom-control-label" for="airlineTicket">Tiket penerbangan pergi-balik kelas ekonomi termasuk surcaj minyak dan segala cukai penerbangan.</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="include[]" class="custom-control-input" id="hotel" value="2" checked>
+                                        <label class="custom-control-label" for="hotel">Hotel penginapan yang selesa sepanjang lawatan (rujuk senarai hotel ditawarkan).</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="include[]" class="custom-control-input" id="cityTax" value="3" checked>
+                                        <label class="custom-control-label" for="cityTax">Cukai bandar (city tax).</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="include[]" class="custom-control-input" id="meals" value="4" checked>
+                                        <label class="custom-control-label" for="meals">Sarapan pagi di hotel, makan tengahari dan makan malam sesuai Muslim sepanjang lawatan.</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="include[]" class="custom-control-input" id="entranceTicket" value="5" checked>
+                                        <label class="custom-control-label" for="entranceTicket">Ticket masuk ke tempat-tempat menarik sepanjang lawatan.</label>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="include[]" class="custom-control-input" id="transport" value="6" checked>
+                                        <label class="custom-control-label" for="transport">Pengangkutan bas persiaran yang berhawa dan selesa.</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="include[]" class="custom-control-input" id="guide" value="7" checked>
+                                        <label class="custom-control-label" for="guide">Perkhidmatan pemandu pelancong berbahasa Inggeris yang berpengalaman sepanjang lawatan.</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="include[]" class="custom-control-input" id="tipping" value="8" checked>
+                                        <label class="custom-control-label" for="tipping">Tip kepada pemandu pelancong dan pemandu bas semasa lawatan.</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="include[]" class="custom-control-input" id="tourLeader" value="9" checked>
+                                        <label class="custom-control-label" for="tourLeader">Ketua rombongan yang terlatih dan berpengalaman dari Enrich Travelogue Sdn Bhd.</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="include[]" class="custom-control-input" id="beg" value="10" checked>
+                                        <label class="custom-control-label" for="beg">Percuma edisi beg pengembaraan khas Enrich Travelogue Sdn Bhd.</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="Exclude" role="tabpanel" aria-labelledby="Exclude-tab">
+                            <div class="row my-2">
+                                <div class="col">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="exclude[]" class="custom-control-input" id="insurance" value="1" checked>
+                                        <label class="custom-control-label" for="insurance">Insurans kembara - sila hubungi kami bagi khidmat nasihat dan pembelian premium insurans kembara yang sesuai.</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="exclude[]" class="custom-control-input" id="surcaj" value="2" checked>
+                                        <label class="custom-control-label" for="surcaj">Surcaj tambahan kepada harga yang ditawarkan ketika waktu perayaan, puncak dan cuti sekolah (sekiranya dinyatakan di dalam tarikh perlepasan).</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="exclude[]" class="custom-control-input" id="additionalService" value="3" checked>
+                                        <label class="custom-control-label" for="additionalService">Servis tambahan di hotel seperti dobi, snek, minibar dan perkhidmatan porter sekiranya tidak dinyatakan.</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="exclude[]" class="custom-control-input" id="extraLuggage" value="4" checked>
+                                        <label class="custom-control-label" for="extraLuggage">Bayaran tambahan bagi lebihan had bagasi yang dibawa.</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="exclude[]" class="custom-control-input" id="extraMeals" value="5" checked>
+                                        <label class="custom-control-label" for="extraMeals">Makan minum, tiket lawatan dan lawatan lain yang tidak dinyatakan di dalam aturcara</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="exclude[]" class="custom-control-input" id="others" value="6" checked>
+                                        <label class="custom-control-label" for="others">Perkara lain selain yang dinyatakan di dalam aturcara dan pakej termasuk kami.</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+                            <div class="row my-2">
+                                <div class="col">
+                                    <label for="tourAirlines">Airlines</label>
+                                    <select class="form-control col-md-12" id="js-data-example-ajax"></select>
+                                </div>
+                            </div>
+                            <div class="row my-2">
+                                <div class="col">
+                                    <label for="flightSchedule">Flight Schedule</label>
+                                    <table class="table table-bordered table-striped table-sm">
                                         <thead>
                                             <tr>
-                                                <th class="text-center align-middle"></th>
-                                                <th class="text-center align-middle">TWN</th>
-                                                <th class="text-center align-middle">SGL</th>
-                                                <th class="text-center align-middle">CTW</th>
-                                                <th class="text-center align-middle">CWB</th>
-                                                <th class="text-center align-middle">CNB</th>
+                                                <th class="text-center align-middle">Day</th>
+                                                <th class="text-center align-middle">Airline</th>
+                                                <th class="text-center align-middle">Sector</th>
+                                                <th class="text-center align-middle">ETD</th>
+                                                <th class="text-center align-middle">ETA</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th class="text-center align-middle">
-                                                    Price
-                                                </th>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="" id="" class="form-control">
+                                                    <input type="text" name="day1" id="" class="form-control">
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="" id="" class="form-control">
+                                                    <input type="text" name="airline1" id="" class="form-control">
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="" id="" class="form-control">
+                                                    <input type="text" name="sector1" id="" class="form-control">
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="" id="" class="form-control">
+                                                    <input type="text" name="etd1" id="" class="form-control">
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="" id="" class="form-control">
+                                                    <input type="text" name="eta1" id="" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="day2" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="airline2" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="sector2" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="etd2" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="eta2" id="" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="day3" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="airline3" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="sector3" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="etd3" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="eta3" id="" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="day4" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="airline4" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="sector4" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="etd4" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="eta4" id="" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="day5" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="airline5" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="sector5" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="etd5" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="eta5" id="" class="form-control">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -174,36 +343,97 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Food truck fixie
-                            locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit,
-                            blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee.
-                            Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum
-                            PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS
-                            salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit,
-                            sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester
-                            stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</div>
-                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Etsy mixtape
-                            wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack
-                            lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard
-                            locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify
-                            squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie
-                            etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog
-                            stumptown. Pitchfork sustainable tofu synth chambray yr.</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-lg-4">
+        <div class="col-xl-4 col-lg-4 position-sticky">
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-primary">Main Settings</h6>
                 </div>
                 <div class="card-body">
-                    Something Here.
+                    <div class="row form-group">
+                        <label class="col-md-3 my-auto control-label text-left">Status</label>
+                        <div class="col-md-9">
+                            <select class="form-control" name="tourStatus">
+                                <option value="Yes">Enabled</option>
+                                <option value="No">Disabled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="col-md-3 my-auto control-label text-left">Hotel Rating</label>
+                        <div class="col-md-9">
+                            <select class="form-control" name="hotelRating">
+                                <option value="1">⭐</option>
+                                <option value="2">⭐⭐</option>
+                                <option value="3">⭐⭐⭐</option>
+                                <option value="4">⭐⭐⭐⭐</option>
+                                <option value="5">⭐⭐⭐⭐⭐</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="col-md-3 my-auto control-label text-left">Tour Type</label>
+                        <div class="col-md-9">
+                            <select class="form-control" name="tourType">
+                                <option value="SD">SD</option>
+                                <option value="FIT">FIT</option>
+                                <option value="SIC">SIC</option>
+                                <option value="Academic">Academic</option>
+                                <option value="Private">Private</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="Feature" class="col-md-3 my-auto control-label text-left">Feature</label>
+                        <div class="col-md-3">
+                            <select name="feature" id="" class="form-control">
+                                <option value="No">No</option>
+                                <option value="Yes">Yes</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" name="featureDate1" id="" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" name="featureDate2" id="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="deposit" class="col-md-3 my-auto control-label text-left text-success">Deposit</label>
+                        <div class="col-md-5">
+                            <select name="depositType" id="" class="form-control">
+                                <option value="fixed">Fixed</option>
+                                <option value="percentage">Percentage</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" name="" id="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="deposit" class="col-md-3 my-auto control-label text-left text-warning">Discount</label>
+                        <div class="col-md-5">
+                            <select name="depositType" id="" class="form-control">
+                                <option value="fixed">Fixed</option>
+                                <option value="percentage">Percentage</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" name="" id="" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 <script src="/enrich/js/addons/ckeditor.js"></script>
 <script>
@@ -269,4 +499,33 @@
             console.warn('Build id: k1wwggsboouu-77bwk5kv8b9a');
             console.error(error);
         });
+</script>
+
+<script>
+    // In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $("#js-data-example-ajax").select2({
+            ajax: {
+                url: '/enrich/admin/tours/airlineSearch.php',
+                dataType: 'json',
+                delay: 250,
+                data: function(term, page) {
+                    return {
+                        term: term, // search term
+                        page: 10
+                    };
+                },
+                processResults: function(data, page) {
+                    return {
+                        results: data.items
+                    };
+                },
+                cache: true
+            },
+            escapeMarkup: function(markup) {
+                return markup;
+            }, // let our custom formatter work
+            minimumInputLength: 1,
+        });
+    });
 </script>

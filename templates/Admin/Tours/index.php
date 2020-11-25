@@ -43,7 +43,7 @@
             </div>
           </div>
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTableTour" width="100%" cellspacing="0">
+            <table class="table table-bordered table-sm" id="dataTableTour" width="100%" cellspacing="0">
               <thead>
                 <tr>
                   <th rowspan="2" class="text-center align-middle">

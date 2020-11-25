@@ -54,11 +54,14 @@
 <script src="/enrich/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
+<!-- Select search -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
 <!-- Page level custom scripts -->
 <!-- 
     <script src="/enrich/js/demo/chart-bar-demo.js"></script>
-<script src="/enrich/js/demo/chart-area-demo.js"></script>
-<script src="/enrich/js/demo/chart-pie-demo.js"></script> 
+    <script src="/enrich/js/demo/chart-area-demo.js"></script>
+    <script src="/enrich/js/demo/chart-pie-demo.js"></script> 
 -->
 <script src="/enrich/js/demo/datatables-demo.js"></script>
 
