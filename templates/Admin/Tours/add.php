@@ -236,7 +236,13 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                             <div class="row my-2">
                                 <div class="col">
                                     <label for="tourAirlines">Airlines</label>
-                                    <select class="form-control col-md-12" id="js-data-example-ajax"></select>
+                                    <div class="">
+                                        <select class="form-control mx-0" id="selectSearch" name="airlines" style="width: 50%;">
+                                            <?php while ($row = mysqli_fetch_array($result)) : ?>
+                                                <option value="<?= $row['id']; ?>"><?= $row['airline']; ?></option>
+                                            <?php endwhile; ?>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row my-2">
@@ -357,7 +363,7 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                         <label class="col-md-3 my-auto control-label text-left">Status</label>
                         <div class="col-md-9">
                             <select class="form-control" name="tourStatus">
-                                <option value="Yes">Enabled</option>
+                                <option value="Yes" selected>Enabled</option>
                                 <option value="No">Disabled</option>
                             </select>
                         </div>
@@ -502,30 +508,9 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
 </script>
 
 <script>
-    // In your Javascript (external .js resource or <script> tag)
     $(document).ready(function() {
-        $("#js-data-example-ajax").select2({
-            ajax: {
-                url: '/enrich/admin/tours/airlineSearch.php',
-                dataType: 'json',
-                delay: 250,
-                data: function(term, page) {
-                    return {
-                        term: term, // search term
-                        page: 10
-                    };
-                },
-                processResults: function(data, page) {
-                    return {
-                        results: data.items
-                    };
-                },
-                cache: true
-            },
-            escapeMarkup: function(markup) {
-                return markup;
-            }, // let our custom formatter work
-            minimumInputLength: 1,
+        $('#selectSearch').select2({
+            placeholder: 'Select an option'
         });
     });
 </script>

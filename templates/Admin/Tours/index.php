@@ -85,7 +85,7 @@
                     7H6M Pusing-Pusing Thailand
                   </td>
                   <td class="text-center align-middle">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    ⭐⭐⭐⭐
                   </td>
                   <td class="text-center align-middle" style="width:80px;">
                     23/11/2020 13/12/2020
@@ -132,7 +132,7 @@
                     7H6M Pusing-Pusing Thailand
                   </td>
                   <td class="text-center align-middle">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    ⭐⭐⭐⭐
                   </td>
                   <td class="text-center align-middle" style="width:80px;">
                     23/11/2020 13/12/2020
@@ -179,7 +179,7 @@
                     7H6M Pusing-Pusing Thailand
                   </td>
                   <td class="text-center align-middle">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    ⭐⭐⭐⭐
                   </td>
                   <td class="text-center align-middle" style="width:80px;">
                     23/11/2020 13/12/2020
@@ -226,7 +226,7 @@
                     7H6M Pusing-Pusing Thailand
                   </td>
                   <td class="text-center align-middle">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    ⭐⭐⭐⭐
                   </td>
                   <td class="text-center align-middle" style="width:80px;">
                     23/11/2020 13/12/2020
@@ -273,7 +273,7 @@
                     7H6M Pusing-Pusing Thailand
                   </td>
                   <td class="text-center align-middle">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    ⭐⭐⭐⭐
                   </td>
                   <td class="text-center align-middle" style="width:80px;">
                     23/11/2020 13/12/2020
@@ -320,7 +320,7 @@
                     7H6M Pusing-Pusing Thailand
                   </td>
                   <td class="text-center align-middle">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    ⭐⭐⭐⭐
                   </td>
                   <td class="text-center align-middle" style="width:80px;">
                     23/11/2020 13/12/2020
@@ -367,7 +367,7 @@
                     7H6M Pusing-Pusing Thailand
                   </td>
                   <td class="text-center align-middle">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    ⭐⭐⭐⭐
                   </td>
                   <td class="text-center align-middle" style="width:80px;">
                     23/11/2020 13/12/2020
@@ -414,7 +414,7 @@
                     7H6M Pusing-Pusing Thailand
                   </td>
                   <td class="text-center align-middle">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    ⭐⭐⭐⭐
                   </td>
                   <td class="text-center align-middle" style="width:80px;">
                     23/11/2020 13/12/2020
@@ -461,7 +461,7 @@
                     7H6M Pusing-Pusing Thailand
                   </td>
                   <td class="text-center align-middle">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    ⭐⭐⭐⭐
                   </td>
                   <td class="text-center align-middle" style="width:80px;">
                     23/11/2020 13/12/2020
@@ -508,7 +508,7 @@
                     7H6M Pusing-Pusing Thailand
                   </td>
                   <td class="text-center align-middle">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    ⭐⭐⭐⭐
                   </td>
                   <td class="text-center align-middle" style="width:80px;">
                     23/11/2020 13/12/2020
@@ -555,7 +555,7 @@
                     7H6M Pusing-Pusing Thailand
                   </td>
                   <td class="text-center align-middle">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    ⭐⭐⭐⭐
                   </td>
                   <td class="text-center align-middle" style="width:80px;">
                     23/11/2020 13/12/2020
