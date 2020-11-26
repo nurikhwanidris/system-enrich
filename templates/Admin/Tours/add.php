@@ -111,7 +111,6 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                     </div>
                                 </div>
                             </div>
-
                             <div class="row my-2">
                                 <div class="col">
                                     <label for="tourCities">Tour Cities</label>
@@ -214,7 +213,7 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                 <div class="col">
                                     <label for="flightSchedule">Flight Schedule</label>
                                     <table class="table table-bordered table-striped table-sm">
-                                        <thead>
+                                        <thead class="bg-light">
                                             <tr>
                                                 <th class="text-center align-middle">Day</th>
                                                 <th class="text-center align-middle">Airline</th>
@@ -319,7 +318,7 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                 <div class="col">
                                     <label for="tourName">Tour Price</label>
                                     <table class="table table-bordered mb-0">
-                                        <thead>
+                                        <thead class="bg-light">
                                             <tr>
                                                 <th class="text-center align-middle"></th>
                                                 <th class="text-center align-middle">TWN</th>
@@ -332,7 +331,7 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                         <tbody>
                                             <tr>
                                                 <th class="text-center align-middle">
-                                                    Normal
+                                                    Normal Person
                                                 </th>
                                                 <td class="text-center align-middle">
                                                     <input type="text" name="tourTwn" id="" class="form-control">
@@ -377,11 +376,27 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                 </div>
                 <div class="card-body">
                     <div class="row form-group">
+                        <label class="col-md-3 my-auto control-label text-left">Image</label>
+                        <div class="col-md-9">
+                            <img id="preview" src="#" alt="image will display here" class="img-thumbnail">
+                            <input type='file' id="imgInp" name="tourImage form-control no-border">
+                        </div>
+                    </div>
+                    <div class="row form-group">
                         <label class="col-md-3 my-auto control-label text-left">Status</label>
                         <div class="col-md-9">
                             <select class="form-control" name="tourStatus">
                                 <option value="Yes" selected>Enabled</option>
                                 <option value="No">Disabled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="col-md-3 my-auto control-label text-left">Meals</label>
+                        <div class="col-md-9">
+                            <select class="form-control" name="tourMeals">
+                                <option value="Half-Board">Half-Board</option>
+                                <option value="Full-Board" selected>Full-Board</option>
                             </select>
                         </div>
                     </div>
@@ -394,6 +409,17 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                 <option value="3">⭐⭐⭐</option>
                                 <option value="4">⭐⭐⭐⭐</option>
                                 <option value="5">⭐⭐⭐⭐⭐</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label class="col-md-3 my-auto control-label text-left">Season</label>
+                        <div class="col-md-9">
+                            <select class="form-control" name="tourSeason">
+                                <option value="Spring">Spring</option>
+                                <option value="Summer">Summer</option>
+                                <option value="Fall">Fall</option>
+                                <option value="Winter" selected>Winter</option>
                             </select>
                         </div>
                     </div>
@@ -532,5 +558,24 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
 <script>
     $(document).ready(function() {
         $('#selectSearch').select2();
+    });
+</script>
+
+<!-- Image Preview -->
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#preview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imgInp").change(function() {
+        readURL(this);
     });
 </script>

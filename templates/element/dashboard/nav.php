@@ -62,6 +62,7 @@
                         <a class="collapse-item" href="<?= $this->Url->build(['controller' => 'tours', 'action' => 'index']); ?>">Tours</a>
                         <a class="collapse-item" href="#">Summary</a>
                         <a class="collapse-item" href="#">Reports</a>
+                        <a class="collapse-item" href="<?= $this->Url->build(['controller' => 'tours', 'action' => 'setting']); ?>">Settings</a>
                     </div>
                 </div>
             </li>

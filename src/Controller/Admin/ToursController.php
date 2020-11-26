@@ -11,10 +11,17 @@ class ToursController extends AppController
     {
         $this->viewBuilder()->setLayout('tours');
     }
+
     public function index()
     {
     }
+
     public function add()
     {
+    }
+
+    public function settings()
+    {
+        // $this->set('title_for_layout', $title);
     }
 }
