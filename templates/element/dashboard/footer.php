@@ -52,7 +52,6 @@
 <script src="/enrich/vendor/chart.js/Chart.min.js"></script>
 <script src="/enrich/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="/enrich/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 <!-- Select search -->
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>

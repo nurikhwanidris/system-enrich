@@ -25,6 +25,9 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                             <a class="nav-link" id="flight-tab" data-toggle="tab" href="#flight" role="tab" aria-controls="flight" aria-selected="false">Flight</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" id="Price-tab" data-toggle="tab" href="#Price" role="tab" aria-controls="Price" aria-selected="false">Price</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" id="Include-tab" data-toggle="tab" href="#Include" role="tab" aria-controls="Include" aria-selected="false">Include</a>
                         </li>
                         <li class="nav-item">
@@ -108,45 +111,7 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                     </div>
                                 </div>
                             </div>
-                            <div class="row my-2">
-                                <div class="col">
-                                    <label for="tourName">Tour Price</label>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-center align-middle"></th>
-                                                <th class="text-center align-middle">TWN</th>
-                                                <th class="text-center align-middle">SGL</th>
-                                                <th class="text-center align-middle">CTW</th>
-                                                <th class="text-center align-middle">CWB</th>
-                                                <th class="text-center align-middle">CNB</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th class="text-center align-middle">
-                                                    Price
-                                                </th>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="tourTwn" id="" class="form-control">
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="tourSgl" id="" class="form-control">
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="tourCtw" id="" class="form-control">
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="tourCwb" id="" class="form-control">
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="tourCnb" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+
                             <div class="row my-2">
                                 <div class="col">
                                     <label for="tourCities">Tour Cities</label>
@@ -349,6 +314,58 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                 </div>
                             </div>
                         </div>
+                        <div class="tab-pane fade" id="Price" role="tabpanel" aria-labelledby="Price-tab">
+                            <div class="row my-2">
+                                <div class="col">
+                                    <label for="tourName">Tour Price</label>
+                                    <table class="table table-bordered mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center align-middle"></th>
+                                                <th class="text-center align-middle">TWN</th>
+                                                <th class="text-center align-middle">SGL</th>
+                                                <th class="text-center align-middle">CTW</th>
+                                                <th class="text-center align-middle">CWB</th>
+                                                <th class="text-center align-middle">CNB</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th class="text-center align-middle">
+                                                    Normal
+                                                </th>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="tourTwn" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="tourSgl" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="tourCtw" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="tourCwb" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="tourCnb" id="" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center align-middle">
+                                                    Senior Citizen
+                                                </th>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="tourTwn" id="" class="form-control">
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <input type="text" name="tourSgl" id="" class="form-control">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -441,7 +458,11 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
         </div>
     </form>
 </div>
+
+<!-- Source for CK Editor -->
 <script src="/enrich/js/addons/ckeditor.js"></script>
+
+<!-- Inline Editor for CKeditor -->
 <script>
     InlineEditor
         .create(document.querySelector('.editor'), {
@@ -507,10 +528,9 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
         });
 </script>
 
+<!-- Script for livesearch -->
 <script>
     $(document).ready(function() {
-        $('#selectSearch').select2({
-            placeholder: 'Select an option'
-        });
+        $('#selectSearch').select2();
     });
 </script>
