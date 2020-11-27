@@ -22,6 +22,5 @@ class ToursController extends AppController
 
     public function settings()
     {
-        // $this->set('title_for_layout', $title);
     }
 }
