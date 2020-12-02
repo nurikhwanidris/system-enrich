@@ -62,7 +62,24 @@
                         <a class="collapse-item" href="<?= $this->Url->build(['controller' => 'tours', 'action' => 'index']); ?>">Tours</a>
                         <a class="collapse-item" href="#">Summary</a>
                         <a class="collapse-item" href="#">Reports</a>
-                        <a class="collapse-item" href="<?= $this->Url->build(['controller' => 'tours', 'action' => 'setting']); ?>">Settings</a>
+                        <a class="collapse-item" href="<?= $this->Url->build(['controller' => 'tours', 'action' => 'settings']); ?>">Settings</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCRM" aria-expanded="true" aria-controls="collapseCRM">
+                    <i class="fas fa-users"></i>
+                    <span>CRM</span>
+                </a>
+                <div id="collapseCRM" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Components</h6>
+                        <a class="collapse-item" href="<?= $this->Url->build(['controller' => 'customers', 'action' => 'index']); ?>">Customers</a>
+                        <a class="collapse-item" href="#">Summary</a>
+                        <a class="collapse-item" href="#">Reports</a>
+                        <a class="collapse-item" href="<?= $this->Url->build(['controller' => 'customers', 'action' => 'settings']); ?>">Settings</a>
                     </div>
                 </div>
             </li>
