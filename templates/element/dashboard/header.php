@@ -23,9 +23,6 @@
     <!-- Custom styles for this template-->
     <link href="/enrich/css/sb-admin-2.min.css" rel="stylesheet">
 
-    <!-- Rich Text Editor -->
-    <script src="https://cdn.tiny.cloud/1/znxziir742r0dv7nkmnufe9bg8pc4kfnbfv10o8m23acf1gd/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 </head>

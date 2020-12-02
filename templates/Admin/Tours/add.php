@@ -10,7 +10,8 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
     </div>
 
-    <form class="row" action="" method="POST">
+    <?= $this->Form->create(); ?>
+    <div class="row">
         <div class="col xl-8 col-lg-8">
             <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items center justify-content-between">
@@ -354,10 +355,10 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                                     Senior Citizen
                                                 </th>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="tourTwn" id="" class="form-control">
+                                                    <input type="text" name="tourTwnSnr" id="" class="form-control">
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="tourSgl" id="" class="form-control">
+                                                    <input type="text" name="tourSglSnr" id="" class="form-control">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -379,7 +380,7 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                         <label class="col-md-3 my-auto control-label text-left">Image</label>
                         <div class="col-md-9">
                             <img id="preview" src="#" alt="image will display here" class="img-thumbnail">
-                            <input type='file' id="imgInp" name="tourImage form-control no-border">
+                            <input type='file' id="imgInp" name="tourImage">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -438,7 +439,7 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                     <div class="row form-group">
                         <label for="Feature" class="col-md-3 my-auto control-label text-left">Feature</label>
                         <div class="col-md-3">
-                            <select name="feature" id="" class="form-control">
+                            <select name="tourFeature" id="" class="form-control">
                                 <option value="No">No</option>
                                 <option value="Yes">Yes</option>
                             </select>
@@ -459,7 +460,7 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <input type="text" name="" id="" class="form-control">
+                            <input type="text" name="depositAmount" id="" class="form-control">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -471,7 +472,7 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                             </select>
                         </div>
                         <div class="col-md-4">
-                            <input type="text" name="" id="" class="form-control">
+                            <input type="text" name="discountAmount" id="" class="form-control">
                         </div>
                     </div>
                     <div class="row form-group">
@@ -482,7 +483,8 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                 </div>
             </div>
         </div>
-    </form>
+    </div>
+    <?= $this->Form->end() ?>
 </div>
 
 <!-- Source for CK Editor -->
@@ -492,7 +494,6 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
 <script>
     InlineEditor
         .create(document.querySelector('.editor'), {
-
             toolbar: {
                 items: [
                     'heading',
@@ -537,14 +538,6 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
         })
         .then(editor => {
             window.editor = editor;
-
-
-
-
-
-
-
-
         })
         .catch(error => {
             console.error('Oops, something went wrong!');
