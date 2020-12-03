@@ -33,10 +33,10 @@
         <!-- Card Body -->
         <div class="card-body">
           <div class="col-lg-12 p-0">
-            <div class="float-left">
+            <div class="float-left mb-2">
               <a href="<?= $this->Url->build(['controller' => 'tours', 'action' => 'add']); ?>" class="btn btn-success"><i class="fas fa-plus-circle"></i> Add</a>
             </div>
-            <div class="float-right">
+            <div class="float-right mb-2">
               <a href="#" class="btn btn-info"><i class="fas fa-print"></i> Print</a>
               <a href="#" class="btn btn-info"><i class="fas fa-file-csv"></i> Export to CSV</a>
               <a href="<?= $this->Url->build(['controller' => 'tours', 'action' => 'delete']); ?>" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</a>
