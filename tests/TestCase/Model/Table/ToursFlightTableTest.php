@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\TourTable;
+use App\Model\Table\ToursFlightTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\TourTable Test Case
+ * App\Model\Table\ToursFlightTable Test Case
  */
-class TourTableTest extends TestCase
+class ToursFlightTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\TourTable
+     * @var \App\Model\Table\ToursFlightTable
      */
-    protected $Tour;
+    protected $ToursFlight;
 
     /**
      * Fixtures
@@ -24,10 +24,8 @@ class TourTableTest extends TestCase
      * @var array
      */
     protected $fixtures = [
-        'app.Tour',
-        'app.TourFlight',
-        'app.TourPrice',
-        'app.TourSettings',
+        'app.ToursFlight',
+        'app.Tours',
     ];
 
     /**
@@ -38,8 +36,8 @@ class TourTableTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Tour') ? [] : ['className' => TourTable::class];
-        $this->Tour = $this->getTableLocator()->get('Tour', $config);
+        $config = $this->getTableLocator()->exists('ToursFlight') ? [] : ['className' => ToursFlightTable::class];
+        $this->ToursFlight = $this->getTableLocator()->get('ToursFlight', $config);
     }
 
     /**
@@ -49,7 +47,7 @@ class TourTableTest extends TestCase
      */
     public function tearDown(): void
     {
-        unset($this->Tour);
+        unset($this->ToursFlight);
 
         parent::tearDown();
     }
@@ -60,6 +58,16 @@ class TourTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault(): void
+    {
+        $this->markTestIncomplete('Not implemented yet.');
+    }
+
+    /**
+     * Test buildRules method
+     *
+     * @return void
+     */
+    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

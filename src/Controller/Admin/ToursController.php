@@ -18,6 +18,16 @@ class ToursController extends AppController
 
     public function add()
     {
+        $tour = $this->Tours->newEmptyEntity();
+        if ($this->request->is('post')) {
+            $tour = $this->Tours->patchEntity($tour, $this->request->getData());
+            if ($this->Tours->save($tour)) {
+                $this->Flash->success(__('The tour has been saved.'));
+                return $this->redirect(['action' => 'add']);
+            }
+            $this->Flash->error(__('The tour could not be saved. Please, try again.'));
+        }
+        $this->set(compact('tour'));
     }
 
     public function settings()

@@ -6,9 +6,9 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * TourSettingsFixture
+ * ToursSettingsFixture
  */
-class TourSettingsFixture extends TestFixture
+class ToursSettingsFixture extends TestFixture
 {
     /**
      * Fields
@@ -35,7 +35,7 @@ class TourSettingsFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'tour_settings_ibfk_1' => ['type' => 'foreign', 'columns' => ['tour_id'], 'references' => ['tour', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'tours_settings_ibfk_1' => ['type' => 'foreign', 'columns' => ['tour_id'], 'references' => ['tours', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',

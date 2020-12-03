@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -9,23 +8,53 @@ use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
-class TourFlightTable extends Table
+/**
+ * ToursFlight Model
+ *
+ * @property \App\Model\Table\ToursTable&\Cake\ORM\Association\BelongsTo $Tours
+ *
+ * @method \App\Model\Entity\ToursFlight newEmptyEntity()
+ * @method \App\Model\Entity\ToursFlight newEntity(array $data, array $options = [])
+ * @method \App\Model\Entity\ToursFlight[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\ToursFlight get($primaryKey, $options = [])
+ * @method \App\Model\Entity\ToursFlight findOrCreate($search, ?callable $callback = null, $options = [])
+ * @method \App\Model\Entity\ToursFlight patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\ToursFlight[] patchEntities(iterable $entities, array $data, array $options = [])
+ * @method \App\Model\Entity\ToursFlight|false save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\ToursFlight saveOrFail(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\ToursFlight[]|\Cake\Datasource\ResultSetInterface|false saveMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\ToursFlight[]|\Cake\Datasource\ResultSetInterface saveManyOrFail(iterable $entities, $options = [])
+ * @method \App\Model\Entity\ToursFlight[]|\Cake\Datasource\ResultSetInterface|false deleteMany(iterable $entities, $options = [])
+ * @method \App\Model\Entity\ToursFlight[]|\Cake\Datasource\ResultSetInterface deleteManyOrFail(iterable $entities, $options = [])
+ */
+class ToursFlightTable extends Table
 {
-
+    /**
+     * Initialize method
+     *
+     * @param array $config The configuration for the Table.
+     * @return void
+     */
     public function initialize(array $config): void
     {
         parent::initialize($config);
 
-        $this->setTable('tour_flight');
+        $this->setTable('tours_flight');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
-        $this->belongsTo('Tour', [
+        $this->belongsTo('Tours', [
             'foreignKey' => 'tour_id',
             'joinType' => 'INNER',
         ]);
     }
 
+    /**
+     * Default validation rules.
+     *
+     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @return \Cake\Validation\Validator
+     */
     public function validationDefault(Validator $validator): Validator
     {
         $validator
@@ -137,9 +166,16 @@ class TourFlightTable extends Table
         return $validator;
     }
 
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
     public function buildRules(RulesChecker $rules): RulesChecker
     {
-        $rules->add($rules->existsIn(['tour_id'], 'Tour'), ['errorField' => 'tour_id']);
+        $rules->add($rules->existsIn(['tour_id'], 'Tours'), ['errorField' => 'tour_id']);
 
         return $rules;
     }

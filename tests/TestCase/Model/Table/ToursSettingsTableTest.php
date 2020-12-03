@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\TourPriceTable;
+use App\Model\Table\ToursSettingsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\TourPriceTable Test Case
+ * App\Model\Table\ToursSettingsTable Test Case
  */
-class TourPriceTableTest extends TestCase
+class ToursSettingsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\TourPriceTable
+     * @var \App\Model\Table\ToursSettingsTable
      */
-    protected $TourPrice;
+    protected $ToursSettings;
 
     /**
      * Fixtures
@@ -24,8 +24,8 @@ class TourPriceTableTest extends TestCase
      * @var array
      */
     protected $fixtures = [
-        'app.TourPrice',
-        'app.Tour',
+        'app.ToursSettings',
+        'app.Tours',
     ];
 
     /**
@@ -36,8 +36,8 @@ class TourPriceTableTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('TourPrice') ? [] : ['className' => TourPriceTable::class];
-        $this->TourPrice = $this->getTableLocator()->get('TourPrice', $config);
+        $config = $this->getTableLocator()->exists('ToursSettings') ? [] : ['className' => ToursSettingsTable::class];
+        $this->ToursSettings = $this->getTableLocator()->get('ToursSettings', $config);
     }
 
     /**
@@ -47,7 +47,7 @@ class TourPriceTableTest extends TestCase
      */
     public function tearDown(): void
     {
-        unset($this->TourPrice);
+        unset($this->ToursSettings);
 
         parent::tearDown();
     }

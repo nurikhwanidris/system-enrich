@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\TourSettingsTable;
+use App\Model\Table\ToursTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\TourSettingsTable Test Case
+ * App\Model\Table\ToursTable Test Case
  */
-class TourSettingsTableTest extends TestCase
+class ToursTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\TourSettingsTable
+     * @var \App\Model\Table\ToursTable
      */
-    protected $TourSettings;
+    protected $Tours;
 
     /**
      * Fixtures
@@ -24,8 +24,10 @@ class TourSettingsTableTest extends TestCase
      * @var array
      */
     protected $fixtures = [
-        'app.TourSettings',
-        'app.Tour',
+        'app.Tours',
+        'app.ToursFlight',
+        'app.ToursPrice',
+        'app.ToursSettings',
     ];
 
     /**
@@ -36,8 +38,8 @@ class TourSettingsTableTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('TourSettings') ? [] : ['className' => TourSettingsTable::class];
-        $this->TourSettings = $this->getTableLocator()->get('TourSettings', $config);
+        $config = $this->getTableLocator()->exists('Tours') ? [] : ['className' => ToursTable::class];
+        $this->Tours = $this->getTableLocator()->get('Tours', $config);
     }
 
     /**
@@ -47,7 +49,7 @@ class TourSettingsTableTest extends TestCase
      */
     public function tearDown(): void
     {
-        unset($this->TourSettings);
+        unset($this->Tours);
 
         parent::tearDown();
     }
@@ -58,16 +60,6 @@ class TourSettingsTableTest extends TestCase
      * @return void
      */
     public function testValidationDefault(): void
-    {
-        $this->markTestIncomplete('Not implemented yet.');
-    }
-
-    /**
-     * Test buildRules method
-     *
-     * @return void
-     */
-    public function testBuildRules(): void
     {
         $this->markTestIncomplete('Not implemented yet.');
     }

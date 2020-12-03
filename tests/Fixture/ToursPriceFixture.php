@@ -6,16 +6,16 @@ namespace App\Test\Fixture;
 use Cake\TestSuite\Fixture\TestFixture;
 
 /**
- * TourPriceFixture
+ * ToursPriceFixture
  */
-class TourPriceFixture extends TestFixture
+class ToursPriceFixture extends TestFixture
 {
     /**
      * Table name
      *
      * @var string
      */
-    public $table = 'tour_price';
+    public $table = 'tours_price';
     /**
      * Fields
      *
@@ -37,7 +37,7 @@ class TourPriceFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'tour_price_ibfk_1' => ['type' => 'foreign', 'columns' => ['tour_id'], 'references' => ['tour', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
+            'tours_price_ibfk_1' => ['type' => 'foreign', 'columns' => ['tour_id'], 'references' => ['tours', 'id'], 'update' => 'restrict', 'delete' => 'restrict', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
