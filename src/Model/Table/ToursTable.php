@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Model\Table;
@@ -58,6 +59,8 @@ class ToursTable extends Table
         $this->hasMany('ToursSettings', [
             'foreignKey' => 'tour_id',
         ]);
+
+        $this->hasOne('ToursFlight');
     }
 
     /**

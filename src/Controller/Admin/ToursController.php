@@ -20,14 +20,30 @@ class ToursController extends AppController
     {
         $tour = $this->Tours->newEmptyEntity();
         if ($this->request->is('post')) {
-            $tour = $this->Tours->patchEntity($tour, $this->Tours->request->getData());
+            $tour = $this->Tours->patchEntity($tour, $this->request->getData());
             if ($this->Tours->save($tour)) {
                 $this->Flash->success(__('The tour has been saved.'));
+
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The tour cannot be saved. Please try again later'));
+            $this->Flash->error(__('The tour could not be saved. Please, try again.'));
         }
         $this->set(compact('tour'));
+    }
+
+    public function add2()
+    {
+        // $tour = $this->Tours->newEmptyEntity();
+        // if ($this->request->is('post')) {
+        //     $tour = $this->Tours->patchEntity($tour, $this->request->getData());
+        //     if ($this->Tours->save($tour)) {
+        //         $this->Flash->success(__('The user has been saved.'));
+
+        //         return $this->redirect(['action' => 'index']);
+        //     }
+        //     $this->Flash->error(__('The user could not be saved. Please, try again.'));
+        // }
+        // $this->set(compact('tour'));
     }
 
     public function settings()

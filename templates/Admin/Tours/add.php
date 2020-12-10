@@ -9,8 +9,8 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
         <h1 class="h3 mb-0 text-gray-800">Tours Management</h1>
         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
     </div>
-
-    <?= $this->Form->create(); ?>
+    <div class="mess'age error" onclick="this.classList.add('hidden');"><?= $this->Flash->render(); ?></div>
+    <?= $this->Form->create($tour); ?>
     <div class="row">
         <div class="col xl-8 col-lg-8">
             <div class="card shadow mb-4">
@@ -39,83 +39,27 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                         <div class="tab-pane fade show active" id="General" role="tabpanel" aria-labelledby="General-tab">
                             <div class="row">
                                 <div class="col my-2">
-                                    <label for="tourName">Tour Name</label>
-                                    <input type="text" name="tourName" id="tourName" class="form-control">
+                                    <?= $this->Form->control('name', ['label' => 'Package Name', 'class' => 'form-control', 'id' => 'tourName']); ?>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col my-2">
-                                    <label for="tourName">Tour Dates</label>
-                                    <textarea name="tourDates" id="" class="form-control"></textarea>
+                                    <?= $this->Form->control('date', ['label' => 'Package Date', 'class' => 'form-control', 'id' => 'tourDate', 'rows' => '3']); ?>
                                 </div>
                             </div>
                             <div class="row my-1">
                                 <div class="col form-group">
-                                    <label for="tourDescription">Tour Description</label>
-                                    <div class="editor border rounded mb-0">
-                                        <h2>Bilingual Personality Disorder</h2>
-                                        <figure class="image image-style-side"><img src="https://c.cksource.com/a/1/img/docs/sample-image-bilingual-personality-disorder.jpg">
-                                            <figcaption>One language, one person.</figcaption>
-                                        </figure>
-                                        <p>
-                                            This may be the first time you hear about this made-up disorder but
-                                            it actually isn’t so far from the truth. Even the studies that were conducted almost half a century show that
-                                            <strong>the language you speak has more effects on you than you realise</strong>.
-                                        </p>
-                                        <p>
-                                            One of the very first experiments conducted on this topic dates back to 1964.
-                                            <a href="https://www.researchgate.net/publication/9440038_Language_and_TAT_content_in_bilinguals">In the experiment</a>
-                                            designed by linguist Ervin-Tripp who is an authority expert in psycholinguistic and sociolinguistic studies,
-                                            adults who are bilingual in English in French were showed series of pictures and were asked to create 3-minute stories.
-                                            In the end participants emphasized drastically different dynamics for stories in English and French.
-                                        </p>
-                                        <p>
-                                            Another ground-breaking experiment which included bilingual Japanese women married to American men in San Francisco were
-                                            asked to complete sentences. The goal of the experiment was to investigate whether or not human feelings and thoughts
-                                            are expressed differently in <strong>different language mindsets</strong>.
-                                            <Here>is a sample from the the experiment:</Here>
-                                        </p>
-                                        <table>
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>English</th>
-                                                    <th>Japanese</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Real friends should</td>
-                                                    <td>Be very frank</td>
-                                                    <td>Help each other</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>I will probably become</td>
-                                                    <td>A teacher</td>
-                                                    <td>A housewife</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>When there is a conflict with family</td>
-                                                    <td>I do what I want</td>
-                                                    <td>It's a time of great unhappiness</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <p>
-                                            More recent <a href="https://books.google.pl/books?id=1LMhWGHGkRUC">studies</a> show, the language a person speaks affects
-                                            their cognition, behaviour, emotions and hence <strong>their personality</strong>.
-                                            This shouldn’t come as a surprise
-                                            <a href="https://en.wikipedia.org/wiki/Lateralization_of_brain_function">since we already know</a> that different regions
-                                            of the brain become more active depending on the person’s activity at hand. Since structure, information and especially
-                                            <strong>the culture</strong> of languages varies substantially and the language a person speaks is an essential element of daily life.
-                                        </p>
-                                    </div>
+                                    <?= $this->Form->control('description', ['label' => 'Package Description', 'class' => 'editor border rounded mb-0 ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline ck-blurred form-control', 'id' => 'editor1', 'dir' => 'ltr', 'role' => 'textbox', 'aria-label' => 'Rich Text Editor, main', 'spellcheck' => 'false', 'lang' => 'en', 'contenteditable' => 'true', 'default' => 'Replace this with the itinerary.']); ?>
                                 </div>
+                                <script>
+                                    // Replace the <textarea id="editor1"> with a CKEditor 4
+                                    // instance, using default configuration.
+                                    CKEDITOR.replace('editor1');
+                                </script>
                             </div>
                             <div class="row my-2">
                                 <div class="col">
-                                    <label for="tourCities">Tour Cities</label>
-                                    <textarea id="tourCities" class="form-control" name="tourCities">ATHENS – KALAMBAKA – BITOLA – OHRID – TIRANA – BAR – PODGORICA – BUDVA – KOTOR – TIVAT – DUBROVNIK – POCITELJ – BLAGAJ – MOSTAR – SARAJEVO – AHMICI – TRAVNIK – JAJCE - BIHAC – PLITVICE LAKES – ZAGREB</textarea>
+                                    <?= $this->Form->control('cities', ['label' => 'Package Cities', 'class' => 'form-control', 'id' => 'tourDate', 'rows' => '3', 'default' => 'ATHENS – KALAMBAKA – BITOLA – OHRID – TIRANA – BAR – PODGORICA – BUDVA – KOTOR – TIVAT – DUBROVNIK – POCITELJ – BLAGAJ – MOSTAR – SARAJEVO – AHMICI – TRAVNIK – JAJCE - BIHAC – PLITVICE LAKES – ZAGREB']); ?>
                                 </div>
                             </div>
                         </div>
@@ -214,99 +158,90 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                 <div class="col">
                                     <label for="flightSchedule">Flight Schedule</label>
                                     <table class="table table-bordered table-striped table-sm">
-                                        <thead class="bg-light">
-                                            <tr>
-                                                <th class="text-center align-middle">Day</th>
-                                                <th class="text-center align-middle">Airline</th>
-                                                <th class="text-center align-middle">Sector</th>
-                                                <th class="text-center align-middle">ETD</th>
-                                                <th class="text-center align-middle">ETA</th>
-                                            </tr>
-                                        </thead>
                                         <tbody>
                                             <tr>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="day1" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.flight1', ['class' => 'form-control', 'label' => 'Fligt 1']); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="airline1" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.airline1', ['class' => 'form-control', 'label' => 'Airline 1']); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="sector1" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.sector1', ['class' => 'form-control', 'label' => 'Sector 1']); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="etd1" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.etd1', ['class' => 'form-control', 'label' => 'ETD 1']); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="eta1" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="day2" id="" class="form-control">
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="airline2" id="" class="form-control">
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="sector2" id="" class="form-control">
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="etd2" id="" class="form-control">
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="eta2" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.eta1', ['class' => 'form-control', 'label' => 'ETA 1']); ?>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="day3" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.flight2', ['class' => 'form-control', 'label' => 'Flight 2']); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="airline3" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.airline2', ['class' => 'form-control', 'label' => 'Airline 2']); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="sector3" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.sector2', ['class' => 'form-control', 'label' => 'Sector 2']); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="etd3" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.etd2', ['class' => 'form-control', 'label' => 'ETD 2']); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="eta3" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="day4" id="" class="form-control">
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="airline4" id="" class="form-control">
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="sector4" id="" class="form-control">
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="etd4" id="" class="form-control">
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <input type="text" name="eta4" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.eta2', ['class' => 'form-control', 'label' => 'ETA 2']); ?>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="day5" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.flight3', ['class' => 'form-control', 'label' => 'Flight 3']); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="airline5" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.airline3', ['class' => 'form-control', 'label' => 'Airline 3']); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="sector5" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.sector3', ['class' => 'form-control', 'label' => 'Sector 3']); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="etd5" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.etd3', ['class' => 'form-control', 'label' => 'ETD 3']); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="eta5" id="" class="form-control">
+                                                    <?= $this->Form->control('tour.eta3', ['class' => 'form-control', 'label' => 'ETA 3']); ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center align-middle">
+                                                    <?= $this->Form->control('tour.flight4', ['class' => 'form-control', 'label' => 'ETA 4']); ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $this->Form->control('tour.airline4', ['class' => 'form-control', 'label' => 'Airline 4']); ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $this->Form->control('tour.sector4', ['class' => 'form-control', 'label' => 'Sector 4']); ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $this->Form->control('tour.etd', ['class' => 'form-control', 'label' => 'ETD 4']); ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $this->Form->control('tour.eta4', ['class' => 'form-control', 'label' => 'ETA 4']); ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center align-middle">
+                                                    <?= $this->Form->control('tour.flight5', ['class' => 'form-control', 'label' => 'Flight 5']); ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $this->Form->control('tour.airline5', ['class' => 'form-control', 'label' => 'Airline 5']); ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $this->Form->control('tour.sector5', ['class' => 'form-control', 'label' => 'Sector 5']); ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $this->Form->control('tour.etd5', ['class' => 'form-control', 'label' => 'ETD 5']); ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $this->Form->control('tour.eta5', ['class' => 'form-control', 'label' => 'ETA 5']); ?>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -335,19 +270,19 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                                     Normal Person
                                                 </th>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="tourTwn" id="" class="form-control">
+                                                    <?= $this->Form->control('twn', ['class' => 'form-control', 'label' => false]); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="tourSgl" id="" class="form-control">
+                                                    <?= $this->Form->control('sgl', ['class' => 'form-control', 'label' => false]); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="tourCtw" id="" class="form-control">
+                                                    <?= $this->Form->control('ctw', ['class' => 'form-control', 'label' => false]); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="tourCwb" id="" class="form-control">
+                                                    <?= $this->Form->control('cwb', ['class' => 'form-control', 'label' => false]); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="tourCnb" id="" class="form-control">
+                                                    <?= $this->Form->control('cnb', ['class' => 'form-control', 'label' => false]); ?>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -355,10 +290,10 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                                     Senior Citizen
                                                 </th>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="tourTwnSnr" id="" class="form-control">
+                                                    <?= $this->Form->control('snr_twn', ['class' => 'form-control', 'label' => false]); ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <input type="text" name="tourSglSnr" id="" class="form-control">
+                                                    <?= $this->Form->control('snr_sgl', ['class' => 'form-control', 'label' => false]); ?>
                                                 </td>
                                             </tr>
                                         </tbody>
