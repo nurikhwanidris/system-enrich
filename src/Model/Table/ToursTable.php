@@ -59,8 +59,6 @@ class ToursTable extends Table
         $this->hasMany('ToursSettings', [
             'foreignKey' => 'tour_id',
         ]);
-
-        $this->hasOne('ToursFlight');
     }
 
     /**

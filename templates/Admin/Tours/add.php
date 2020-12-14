@@ -146,7 +146,7 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                 <div class="col">
                                     <label for="tourAirlines">Airlines</label>
                                     <div class="">
-                                        <select class="form-control mx-0" id="selectSearch" name="airlines" style="width: 50%;">
+                                        <select class="form-control mx-0" id="selectSearch" name="tour[airlines]" style="width: 50%;">
                                             <?php while ($row = mysqli_fetch_array($result)) : ?>
                                                 <option value="<?= $row['id']; ?>"><?= $row['airline']; ?></option>
                                             <?php endwhile; ?>
@@ -170,87 +170,112 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                         <tbody>
                                             <tr>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.flight1', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.flight1', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.airline1', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.airline1', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.sector1', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.sector1', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.etd1', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.etd1', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.eta1', ['class' => 'form-control', 'label' => false]); ?>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.flight2', ['class' => 'form-control', 'label' => false]); ?>
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.airline2', ['class' => 'form-control', 'label' => false]); ?>
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.sector2', ['class' => 'form-control', 'label' => false]); ?>
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.etd2', ['class' => 'form-control', 'label' => false]); ?>
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.eta2', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.eta1', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.flight3', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.flight2', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.airline3', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.airline2', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.sector3', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.sector2', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.etd3', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.etd2', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.eta3', ['class' => 'form-control', 'label' => false]); ?>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.flight4', ['class' => 'form-control', 'label' => false]); ?>
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.airline4', ['class' => 'form-control', 'label' => false]); ?>
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.sector4', ['class' => 'form-control', 'label' => false]); ?>
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.etd', ['class' => 'form-control', 'label' => false]); ?>
-                                                </td>
-                                                <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.eta4', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.eta2', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.flight5', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.flight3', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.airline5', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.airline3', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.sector5', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.sector3', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.etd5', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.etd3', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('tour.eta5', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.eta3', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center align-middle">
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.flight4', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.airline4', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.sector4', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.etd', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.eta4', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center align-middle">
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.flight5', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.airline5', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.sector5', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.etd5', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <?= $a = 'abu'; //$this->Form->control('tour.eta5', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -279,19 +304,24 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                                     Normal Person
                                                 </th>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('twn', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('twn', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('sgl', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('sgl', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('ctw', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('ctw', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('cwb', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('cwb', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('cnb', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('cnb', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -299,10 +329,12 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                                                     Senior Citizen
                                                 </th>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('snr_twn', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('snr_twn', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                                 <td class="text-center align-middle">
-                                                    <?= $this->Form->control('snr_sgl', ['class' => 'form-control', 'label' => false]); ?>
+                                                    <?= $a = 'abu'; //$this->Form->control('snr_sgl', ['class' => 'form-control', 'label' => false]); 
+                                                    ?>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -324,104 +356,88 @@ $result = mysqli_query(mysqli_connect('localhost', 'root', '', 'enrich-new'), $q
                         <label class="col-md-3 my-auto control-label text-left">Image</label>
                         <div class="col-md-9">
                             <img id="preview" src="#" alt="image will display here" class="img-thumbnail">
-                            <input type='file' id="imgInp" name="tourImage">
+                            <input type='file' id="imgInp">
                         </div>
                     </div>
                     <div class="row form-group">
                         <label class="col-md-3 my-auto control-label text-left">Status</label>
                         <div class="col-md-9">
-                            <select class="form-control" name="tourStatus">
-                                <option value="Yes" selected>Enabled</option>
-                                <option value="No">Disabled</option>
-                            </select>
+                            <?= $a = 'abu'; //$this->Form->select(
+                            //'tour.Status',
+                            //['Enabled', 'Disabled'],
+                            //['class' => 'form-control']
+                            //); 
+                            ?>
                         </div>
                     </div>
                     <div class="row form-group">
                         <label class="col-md-3 my-auto control-label text-left">Meals</label>
                         <div class="col-md-9">
-                            <select class="form-control" name="tourMeals">
-                                <option value="Half-Board">Half-Board</option>
-                                <option value="Full-Board" selected>Full-Board</option>
-                            </select>
+                            <?= $a = 'abu'; //$this->Form->select('tour.Meals', ['Halfboard', 'Fullboard'], ['class' => 'form-control']); 
+                            ?>
                         </div>
                     </div>
                     <div class="row form-group">
                         <label class="col-md-3 my-auto control-label text-left">Hotel Rating</label>
                         <div class="col-md-9">
-                            <select class="form-control" name="hotelRating">
-                                <option value="1">⭐</option>
-                                <option value="2">⭐⭐</option>
-                                <option value="3">⭐⭐⭐</option>
-                                <option value="4">⭐⭐⭐⭐</option>
-                                <option value="5">⭐⭐⭐⭐⭐</option>
-                            </select>
+                            <?= $a = 'abu'; //$this->Form->select('tour.Hotel', ['⭐', '⭐⭐', '⭐⭐⭐', '⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'], ['class' => 'form-control']); 
+                            ?>
                         </div>
                     </div>
                     <div class="row form-group">
                         <label class="col-md-3 my-auto control-label text-left">Season</label>
                         <div class="col-md-9">
-                            <select class="form-control" name="tourSeason">
-                                <option value="Spring">Spring</option>
-                                <option value="Summer">Summer</option>
-                                <option value="Fall">Fall</option>
-                                <option value="Winter" selected>Winter</option>
-                            </select>
+                            <?= $a = 'abu'; //$this->Form->select('tour.Season', ['Spring', 'Summer', 'Falls', 'Winter'], ['class' => 'form-control']); 
+                            ?>
                         </div>
                     </div>
                     <div class="row form-group">
                         <label class="col-md-3 my-auto control-label text-left">Tour Type</label>
                         <div class="col-md-9">
-                            <select class="form-control" name="tourType">
-                                <option value="SD">SD</option>
-                                <option value="FIT">FIT</option>
-                                <option value="SIC">SIC</option>
-                                <option value="Academic">Academic</option>
-                                <option value="Private">Private</option>
-                            </select>
+                            <?= $a = 'abu'; //$this->Form->select('tour.Type', ['SD' => 'SD', 'FIT' => 'FIT', 'Academic' => 'Academic', 'Private' => 'Private'], ['class' => 'form-control']); 
+                            ?>
                         </div>
                     </div>
                     <div class="row form-group">
                         <label for="Feature" class="col-md-3 my-auto control-label text-left">Feature</label>
                         <div class="col-md-3">
-                            <select name="tourFeature" id="" class="form-control">
-                                <option value="No">No</option>
-                                <option value="Yes">Yes</option>
-                            </select>
+                            <?= $a = 'abu'; //$this->Form->select('tour.Feature', ['No' => 'No', 'Yes' => 'Yes'], ['class' => 'form-control']); 
+                            ?>
                         </div>
                         <div class="col-md-3">
-                            <input type="date" name="featureDate1" id="" class="form-control">
+                            <?= $a = 'abu'; //$this->Form->date('tour.promoStart', ['class' => 'form-control', 'label' => false]); 
+                            ?>
                         </div>
                         <div class="col-md-3">
-                            <input type="date" name="featureDate2" id="" class="form-control">
+                            <?= $a = 'abu'; //$this->Form->date('tour.promoEnd', ['class' => 'form-control', 'label' => false]); 
+                            ?>
                         </div>
                     </div>
                     <div class="row form-group">
                         <label for="deposit" class="col-md-3 my-auto control-label text-left text-success">Deposit</label>
                         <div class="col-md-5">
-                            <select name="depositType" id="" class="form-control">
-                                <option value="fixed">Fixed</option>
-                                <option value="percentage">Percentage</option>
-                            </select>
+                            <?= $a = 'abu'; //$this->Form->select('tour.DepositType', ['Fixed' => 'Fixed', 'Percentage' => 'Percentage'], ['class' => 'form-control']); 
+                            ?>
                         </div>
                         <div class="col-md-4">
-                            <input type="text" name="depositAmount" id="" class="form-control">
+                            <?= $a = 'abu'; //$this->Form->control('tour.DepositAmount', ['class' => 'form-control', 'label' => false]); 
+                            ?>
                         </div>
                     </div>
                     <div class="row form-group">
                         <label for="deposit" class="col-md-3 my-auto control-label text-left text-warning">Discount</label>
                         <div class="col-md-5">
-                            <select name="depositType" id="" class="form-control">
-                                <option value="fixed">Fixed</option>
-                                <option value="percentage">Percentage</option>
-                            </select>
+                            <?= $a = 'abu'; //$this->Form->select('tour.DiscountType', ['Fixed' => 'Fixed', 'Percentage' => 'Percentage'], ['class' => 'form-control']); 
+                            ?>
                         </div>
                         <div class="col-md-4">
-                            <input type="text" name="discountAmount" id="" class="form-control">
+                            <?= $a = 'abu'; //$this->Form->control('tour.DepositAmount', ['class' => 'form-control', 'label' => false]); 
+                            ?>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                            <?= $this->Form->submit('Submit', ['class' => 'btn btn-primary']); ?>
                         </div>
                     </div>
                 </div>

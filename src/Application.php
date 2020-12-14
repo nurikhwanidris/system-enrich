@@ -26,6 +26,8 @@ class Application extends BaseApplication implements AuthenticationServiceProvid
 
     public function bootstrap(): void
     {
+        $this->addPlugin('DebugKit');
+
         parent::bootstrap();
 
         if (PHP_SAPI === 'cli') {

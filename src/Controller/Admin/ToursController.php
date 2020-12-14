@@ -16,8 +16,9 @@ class ToursController extends AppController
     {
     }
 
-    public function add()
+    public function add($id = null)
     {
+        // Insert stuff
         $tour = $this->Tours->newEmptyEntity();
         if ($this->request->is('post')) {
             $tour = $this->Tours->patchEntity($tour, $this->request->getData());
